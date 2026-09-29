@@ -1,0 +1,24 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #1f2937;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.search-field i.field-icon {
+  display: inline-flex !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 8px 0 12px !important;
+  align-items: center;
+  vertical-align: middle;
+}

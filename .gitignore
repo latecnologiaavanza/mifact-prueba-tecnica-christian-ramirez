@@ -1,0 +1,21 @@
+# Backend
+inventory-api/target/
+inventory-api/.env
+inventory-api/.idea/
+inventory-api/*.log
+
+# Frontend
+inventory-web/node_modules/
+inventory-web/dist/
+inventory-web/.angular/
+inventory-web/coverage/
+
+# IDEs and operating-system files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Archivos internos del entorno, no pertenecen a la aplicación
+.github/modernize/

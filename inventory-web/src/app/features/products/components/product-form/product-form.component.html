@@ -1,0 +1,68 @@
+<h2 mat-dialog-title>
+  {{ isEditing ? 'Editar producto' : 'Nuevo producto' }}
+</h2>
+
+<form class="product-form" [formGroup]="form" (ngSubmit)="save()">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" maxlength="100" autocomplete="off" />
+      @if (form.controls.name.hasError('required') || form.controls.name.hasError('blank')) {
+        <mat-error>El nombre es obligatorio.</mat-error>
+      } @else if (form.controls.name.hasError('maxlength')) {
+        <mat-error>El nombre no puede superar los 100 caracteres.</mat-error>
+      } @else if (serverError('name')) {
+        <mat-error>{{ serverError('name') }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description" maxlength="500" rows="4"></textarea>
+      <mat-hint align="end">{{ form.controls.description.value.length }}/500</mat-hint>
+      @if (form.controls.description.hasError('maxlength')) {
+        <mat-error>La descripción no puede superar los 500 caracteres.</mat-error>
+      } @else if (serverError('description')) {
+        <mat-error>{{ serverError('description') }}</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Cantidad</mat-label>
+        <input matInput type="number" min="0" step="1" formControlName="quantity" />
+        @if (form.controls.quantity.hasError('required')) {
+          <mat-error>La cantidad es obligatoria.</mat-error>
+        } @else if (form.controls.quantity.hasError('min')) {
+          <mat-error>La cantidad no puede ser negativa.</mat-error>
+        } @else if (serverError('quantity')) {
+          <mat-error>{{ serverError('quantity') }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Precio</mat-label>
+        <span matTextPrefix>S/&nbsp;</span>
+        <input matInput type="number" min="0.01" step="0.01" formControlName="price" />
+        @if (form.controls.price.hasError('required') || form.controls.price.hasError('min')) {
+          <mat-error>El precio debe ser mayor que cero.</mat-error>
+        } @else if (form.controls.price.hasError('pattern')) {
+          <mat-error>Usa máximo 10 enteros y 2 decimales.</mat-error>
+        } @else if (serverError('price')) {
+          <mat-error>{{ serverError('price') }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" [disabled]="saving" (click)="cancel()">Cancelar</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="saving">
+      @if (saving) {
+        <mat-spinner diameter="20" />
+      } @else {
+        {{ isEditing ? 'Guardar cambios' : 'Crear producto' }}
+      }
+    </button>
+  </mat-dialog-actions>
+</form>

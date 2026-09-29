@@ -1,0 +1,161 @@
+.products-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 6px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.subtitle {
+  margin-bottom: 0;
+  color: #64748b;
+}
+
+.search-field {
+  width: min(100%, 460px);
+  margin: 24px 0 16px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.products-table {
+  width: 100%;
+  min-width: 680px;
+}
+
+.actions-column {
+  width: 132px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.actions-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 72px;
+}
+
+.icon-button {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #2563eb;
+  cursor: pointer;
+  place-items: center;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.icon-button:hover:not(:disabled) {
+  background: #dbeafe;
+}
+
+.icon-button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 2px;
+}
+
+.icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.action-icon {
+  margin-right: 8px;
+}
+
+.action-icon,
+.field-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin: 0 8px 0 12px;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.delete-button {
+  color: #dc2626;
+}
+
+.delete-button:not(:disabled):hover {
+  background: #fee2e2;
+}
+
+.clear-button {
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+  color: #64748b;
+}
+
+.delete-button i {
+  font-size: 22px;
+}
+
+.empty-state {
+  padding: 56px 24px 40px;
+  color: #64748b;
+  text-align: center;
+}
+
+.empty-state > i {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  color: #94a3b8;
+  font-size: 48px;
+}
+
+.empty-state h2 {
+  margin: 16px 0 8px;
+  color: #334155;
+  font-size: 1.15rem;
+}
+
+.empty-state p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+  .page-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .page-heading button {
+    width: 100%;
+  }
+}

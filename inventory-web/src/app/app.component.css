@@ -1,0 +1,15 @@
+.app-toolbar {
+  gap: 12px;
+}
+
+.app-content {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+@media (max-width: 600px) {
+  .app-content {
+    padding: 24px 16px 40px;
+  }
+}
