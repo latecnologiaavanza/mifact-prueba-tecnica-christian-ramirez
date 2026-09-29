@@ -14,6 +14,10 @@ Aplicación de inventario desarrollada como prueba técnica. El proyecto está d
 
 El frontend consume la API mediante `/api/v1/products`. En desarrollo, Angular utiliza `proxy.conf.json`; con Docker, Nginx reenvía las peticiones `/api` al contenedor del backend.
 
+### Diagrama de arquitectura
+
+[Ver diagrama actual en Excalidraw](https://excalidraw.com/?utm_source=chatgpt.com#json=VXtQ2dxcO1ezy9VJQeunk,7sGyUABQNIUAT3WqWejohw)
+
 ## Estructura del proyecto
 
 ```text
